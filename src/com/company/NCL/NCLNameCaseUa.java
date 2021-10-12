@@ -18,12 +18,6 @@ import static com.company.NCL.NCL.NamePart.SECOND_NAME;
 public class NCLNameCaseUa extends NCLNameCaseCore {
 
     /**
-     * Версия языкового файла
-     * var string
-     */
-    protected static final String languageBuild = "11071222";
-
-    /**
      * Количество падежей в языке
      * var int
      */
@@ -31,8 +25,6 @@ public class NCLNameCaseUa extends NCLNameCaseCore {
     public int getCaseCount() {
         return 7;
     }
-
-    ;
     /**
      * Список гласных украинского языка
      * var string

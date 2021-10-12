@@ -19,15 +19,6 @@ import static com.company.NCL.NCL.NamePart.SECOND_NAME;
  * абсолютно одинаковым. Содержит все функции для внешнего взаимодействия с библиотекой.
  */
 public abstract class NCLNameCaseCore extends NCL {
-
-    /**
-     * Версия библиотеки
-     */
-    protected String version = "0.4.1";
-    /**
-     * Версия языкового файла
-     */
-    protected String languageBuild = "0";
     /**
      * Готовность системы:
      * - Все слова идентифицированы (известо к какой части ФИО относится слово)
@@ -90,7 +81,6 @@ public abstract class NCLNameCaseCore extends NCL {
      */
     private NCLNameCaseCore fullReset() {
         this.words = new ArrayList<>();
-        ;
         this.index = new HashMap<>();
         this.index.put(FIRST_NAME, new ArrayList<>());
         this.index.put(FATHER_NAME, new ArrayList<>());
@@ -152,7 +142,7 @@ public abstract class NCLNameCaseCore extends NCL {
      * return string требуемая подстрока
      */
     protected String last(int length, int stopAfter) {
-        int cut = 0;
+        int cut;
         //Сколько букв нужно вырезать все или только часть
         if (stopAfter == 0) {
             cut = length;
@@ -207,7 +197,7 @@ public abstract class NCLNameCaseCore extends NCL {
      */
     protected boolean inNames(String nameNeedle, List<String> names) {
         for (String name : names) {
-            if (nameNeedle.toLowerCase().equals(name.toLowerCase())) {
+            if (nameNeedle.equals(name.toLowerCase())) {
                 return true;
             }
         }
@@ -809,21 +799,5 @@ public abstract class NCLNameCaseCore extends NCL {
      * param word обьект класса слов, который необходимо идентифицировать
      */
     protected abstract void detectNamePart(NCLNameCaseWord word);
-
-    /**
-     * Возвращает версию библиотеки
-     * return string версия библиотеки
-     */
-    public String version() {
-        return this.version;
-    }
-
-    /**
-     * Возвращает версию использованого языкового файла
-     * return string версия языкового файла
-     */
-    public String languageVersion() {
-        return this.languageBuild;
-    }
 
 }
